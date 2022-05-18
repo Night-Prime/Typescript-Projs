@@ -22,3 +22,25 @@ const Component = ( target: any) => { // <--- this is a plain decorator
 @Component
 class Car {
 };
+
+// Building Generics
+
+class valueHolder<TypeValueProperty> {
+  value: TypeValueProperty;
+}
+
+const numberHolder = new valueHolder<number>();
+numberHolder.value;
+
+//  using generics with functions
+const numberWrapper = (value: number) :number[] => {
+  return [value];
+};
+
+//  generic function
+const valueWrapper=<TypeValueProperty>(value: TypeValueProperty):TypeValueProperty[] => {
+  return [value];
+}
+
+valueWrapper<number>(10);
+valueWrapper<boolean>(true);
